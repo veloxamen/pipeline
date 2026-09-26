@@ -1,0 +1,29 @@
+{
+  "log_type": "cisco_asa",
+  "format": "regex",
+  "template_warning": "No real ASA device log was available. Assumes 'logging timestamp' is enabled with the year included (e.g. \"Jul 15 2024 10:00:00\"), followed by the hostname, then the %ASA-x-msgnum: message. Only two of ASA's many message IDs are covered: %ASA-6-106100 (access-list hit) and %ASA-6-3020{13,14,15,16} (connection built/teardown). Lines matching neither pattern, or whose leading timestamp doesn't match the assumed format, are skipped as row errors rather than guessed at -- unlike a hand-rolled parser this does not fall back to 'now' for an unparseable timestamp, so a format mismatch shows up immediately as row_errors in the job's own logs instead of silently mistiming rows.",
+  "patterns": [
+    {
+      "match": "^(?P<event_timestamp>[A-Za-z]{3}\\s+\\d{1,2}\\s+\\d{4}\\s+\\d{2}:\\d{2}:\\d{2})\\s+\\S+\\s+%ASA-\\d-106100:\\s+access-list\\s+(?P<rule_name>\\S+)\\s+(?P<action>permitted|denied)\\s+(?P<protocol>\\S+)\\s+(?P<ing_if>\\S+)/(?P<src_ip>[0-9.]+)\\((?P<src_port>\\d+)\\)\\s+->\\s+(?P<egr_if>\\S+)/(?P<dst_ip>[0-9.]+)\\((?P<dst_port>\\d+)\\)",
+      "consts": { "log_type": "access-list" }
+    },
+    {
+      "match": "^(?P<event_timestamp>[A-Za-z]{3}\\s+\\d{1,2}\\s+\\d{4}\\s+\\d{2}:\\d{2}:\\d{2})\\s+\\S+\\s+%ASA-\\d-30201[3-6]:\\s+(?P<action>Built|Teardown)\\s+(?:(?P<direction>inbound|outbound)\\s+)?(?P<protocol>\\S+)\\s+connection\\s+\\d+\\s+for\\s+(?P<ing_if>\\S+):(?P<src_ip>[0-9.]+)/(?P<src_port>\\d+)(?:\\s*\\([0-9.]+/\\d+\\))?\\s+to\\s+(?P<egr_if>\\S+):(?P<dst_ip>[0-9.]+)/(?P<dst_port>\\d+)",
+      "consts": { "log_type": "connection" }
+    }
+  ],
+  "fields": [
+    { "target": "event_timestamp", "source": "event_timestamp", "transform": "layout:Jan 2 2006 15:04:05" },
+    { "target": "log_type",        "source": "log_type" },
+    { "target": "action",          "source": "action", "value_map": { "permitted": "Allow", "denied": "Deny" } },
+    { "target": "rule_name",       "source": "rule_name" },
+    { "target": "direction",       "source": "direction", "value_map": { "inbound": "Inbound", "outbound": "Outbound" } },
+    { "target": "src_ip",          "source": "src_ip" },
+    { "target": "src_port",        "source": "src_port" },
+    { "target": "dst_ip",          "source": "dst_ip" },
+    { "target": "dst_port",        "source": "dst_port" },
+    { "target": "protocol",        "source": "protocol", "transform": "upper" },
+    { "target": "ing_if",          "source": "ing_if" },
+    { "target": "egr_if",          "source": "egr_if" }
+  ]
+}

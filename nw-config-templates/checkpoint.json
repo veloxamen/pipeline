@@ -1,0 +1,22 @@
+{
+  "log_type": "checkpoint",
+  "format": "kv",
+  "delimiter": "space",
+  "template_warning": "TEMPLATE - no real Check Point export was available. Built from Check Point Log Exporter's default 'generic' key=value output. Confirm key names (esp. dst_port vs service, and the exact i/f_dir values) against a real export before relying on this.",
+  "fields": [
+    { "target": "event_timestamp", "source": "time", "transform": "unix" },
+    { "target": "device_name",     "source": ["product", "orig"] },
+    { "target": "action",          "source": "action" },
+    { "target": "rule_id",         "source": "rule_uid" },
+    { "target": "rule_name",       "source": "rule_name" },
+    { "target": "direction",       "source": "i/f_dir" },
+    { "target": "src_ip",          "source": "src" },
+    { "target": "src_port",        "source": "s_port" },
+    { "target": "dst_ip",          "source": "dst" },
+    { "target": "dst_port",        "source": ["dst_port", "service"] },
+    { "target": "protocol",        "source": "proto", "transform": "upper" },
+    { "target": "ing_if",          "source": "i/f_name" },
+    { "target": "sent_bytes",      "source": "bytes" },
+    { "target": "threat_name",     "source": ["attack", "attack_info"] }
+  ]
+}

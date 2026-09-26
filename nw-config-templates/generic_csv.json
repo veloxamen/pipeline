@@ -1,0 +1,32 @@
+{
+  "log_type": "generic_csv",
+  "format": "csv",
+  "has_header": true,
+  "fields": [
+    { "target": "event_timestamp", "source": ["event_timestamp", "event_datetime", "timestamp", "datetime", "time"], "transform": "auto" },
+    { "target": "device_name",     "source": ["device_name", "devname", "hostname", "device"] },
+    { "target": "log_type",        "source": ["log_type", "type", "subtype"] },
+    { "target": "action",          "source": "action" },
+    { "target": "rule_id",         "source": ["rule_id", "policy_id", "policyid"] },
+    { "target": "rule_name",       "source": ["rule_name", "policy_name", "policyname", "rule"] },
+    { "target": "direction",       "source": ["direction", "traffic_direction", "flow_direction", "i/f_dir"] },
+    { "target": "src_ip",          "source": ["src_ip", "source_ip", "srcip", "source address"] },
+    { "target": "src_port",        "source": ["src_port", "source_port", "srcport"] },
+    { "target": "dst_ip",          "source": ["dst_ip", "destination_ip", "dstip", "destination address"] },
+    { "target": "dst_port",        "source": ["dst_port", "destination_port", "dstport"] },
+    { "target": "protocol",        "source": ["protocol", "proto"] },
+    { "target": "ing_if",          "source": ["ing_if", "ingress_interface", "srcintf", "interface"] },
+    { "target": "egr_if",          "source": ["egr_if", "egress_interface", "dstintf"] },
+    { "target": "vpn_remote_ip",   "source": ["vpn_remote_ip", "remip"] },
+    { "target": "nat_src_ip",      "source": ["nat_src_ip", "translated_source_ip", "tranip"] },
+    { "target": "nat_src_port",    "source": ["nat_src_port", "translated_source_port", "tranport"] },
+    { "target": "nat_dst_ip",      "source": ["nat_dst_ip", "translated_destination_ip", "dstinip", "trandstip"] },
+    { "target": "nat_dst_port",    "source": ["nat_dst_port", "translated_destination_port", "trandstport"] },
+    { "target": "user_name",       "source": ["user_name", "user", "username", "unauthuser"] },
+    { "target": "app_name",        "source": ["app_name", "app", "application", "appcat"] },
+    { "target": "sent_bytes",      "source": ["bytes_sent", "sent_bytes", "sentbyte"] },
+    { "target": "rcvd_bytes",      "source": ["bytes_received", "received_bytes", "rcvd_bytes", "rcvdbyte"] },
+    { "target": "duration",        "source": "duration" },
+    { "target": "threat_name",     "source": ["threat_name", "threat", "msg"] }
+  ]
+}

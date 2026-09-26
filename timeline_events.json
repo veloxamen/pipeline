@@ -1,0 +1,68 @@
+[
+  {
+    "name": "event_timestamp",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE",
+    "description": "UTC timestamp converted from Plaso epoch microseconds."
+  },
+  {
+    "name": "timestamp_desc",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Plaso timestamp description (e.g. Content Modification Time)."
+  },
+  {
+    "name": "device_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Source host identifier."
+  },
+  {
+    "name": "parser",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Plaso parser/plugin name."
+  },
+  {
+    "name": "display_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Relative file path from the collection root."
+  },
+  {
+    "name": "message",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Plaso human-readable event message."
+  },
+  {
+    "name": "data_type",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Plaso event data type."
+  },
+  {
+    "name": "event_identifier",
+    "type": "INTEGER",
+    "mode": "NULLABLE",
+    "description": "Windows Event ID or equivalent identifier."
+  },
+  {
+    "name": "username",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Associated username."
+  },
+  {
+    "name": "tag",
+    "type": "STRING",
+    "mode": "REPEATED",
+    "description": "Plaso analysis tags."
+  },
+  {
+    "name": "event_uuid",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Deterministic natural key SHA256 for event tagging/linking."
+  }
+]

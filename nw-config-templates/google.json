@@ -1,0 +1,16 @@
+{
+  "log_type": "google",
+  "format": "json",
+  "fields": [
+    { "target": "event_timestamp", "source": ["timestamp", "receiveTimestamp"], "transform": "rfc3339nano" },
+    { "target": "device_name",     "source": "logName", "transform": "gcp_log_name_project" },
+    { "target": "log_type",        "source": "logName", "transform": "gcp_log_name_id", "default": "compute.googleapis.com/firewall" },
+    { "target": "action",          "source": "jsonPayload.rule_details.action" },
+    { "target": "rule_name",       "source": "jsonPayload.rule_details.reference" },
+    { "target": "src_ip",          "source": "jsonPayload.connection.src_ip" },
+    { "target": "src_port",        "source": "jsonPayload.connection.src_port" },
+    { "target": "dst_ip",          "source": "jsonPayload.connection.dest_ip" },
+    { "target": "dst_port",        "source": "jsonPayload.connection.dest_port" },
+    { "target": "protocol",        "source": "jsonPayload.connection.protocol", "transform": "proto_num" }
+  ]
+}

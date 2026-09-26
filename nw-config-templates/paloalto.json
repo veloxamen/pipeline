@@ -1,0 +1,30 @@
+{
+  "log_type": "paloalto",
+  "format": "csv",
+  "has_header": true,
+  "template_warning": "TEMPLATE - no real PAN-OS export was available. Built from the publicly documented Traffic Log CSV column names, assuming the export was made WITH headers included (Panorama/firewall 'Export to CSV'). If your export has no header row, either re-export with headers, or switch has_header to false and change every source below to a col:N (1-indexed) position matched against your specific PAN-OS version's field order.",
+  "fields": [
+    { "target": "event_timestamp", "source": ["Receive Time", "Generate Time"], "transform": "layout:2006/01/02 15:04:05" },
+    { "target": "device_name",     "source": "Device Name" },
+    { "target": "action",          "source": "Action" },
+    { "target": "rule_name",       "source": "Rule" },
+    { "target": "direction",       "source": "Direction" },
+    { "target": "src_ip",          "source": "Source address" },
+    { "target": "src_port",        "source": "Source Port" },
+    { "target": "dst_ip",          "source": "Destination address" },
+    { "target": "dst_port",        "source": "Destination Port" },
+    { "target": "protocol",        "source": "IP Protocol", "transform": "upper" },
+    { "target": "nat_src_ip",      "source": "NAT Source IP" },
+    { "target": "nat_src_port",    "source": "NAT Source Port" },
+    { "target": "nat_dst_ip",      "source": "NAT Destination IP" },
+    { "target": "nat_dst_port",    "source": "NAT Destination Port" },
+    { "target": "ing_if",          "source": "Inbound Interface" },
+    { "target": "egr_if",          "source": "Outbound Interface" },
+    { "target": "app_name",        "source": "Application" },
+    { "target": "user_name",       "source": "Source User" },
+    { "target": "sent_bytes",      "source": "Bytes Sent" },
+    { "target": "rcvd_bytes",      "source": "Bytes Received" },
+    { "target": "duration",        "source": "Elapsed Time (sec)" },
+    { "target": "threat_name",     "source": ["Threat/Content Name", "Threat Category"] }
+  ]
+}

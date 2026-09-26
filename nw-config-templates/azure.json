@@ -1,0 +1,20 @@
+{
+  "log_type": "azure",
+  "format": "json",
+  "record_path": "records",
+  "fields": [
+    { "target": "event_timestamp", "source": "time", "transform": "rfc3339" },
+    { "target": "device_name",     "source": "resourceId", "transform": "basename" },
+    { "target": "log_type",        "source": ["category", "operationName"] },
+    { "target": "action",          "source": ["properties.action", "properties.msg"] },
+    { "target": "rule_id",         "source": "properties.priority" },
+    { "target": "rule_name",       "join": ["properties.ruleCollectionName", "properties.ruleName"], "separator": "/" },
+    { "target": "direction",       "source": "properties.direction" },
+    { "target": "src_ip",          "source": "properties.sourceIP" },
+    { "target": "src_port",        "source": "properties.sourcePort" },
+    { "target": "dst_ip",          "source": "properties.destinationIP" },
+    { "target": "dst_port",        "source": "properties.destinationPort" },
+    { "target": "protocol",        "source": "properties.protocol" },
+    { "target": "threat_name",     "source": ["properties.threatDescription", "properties.threatType"] }
+  ]
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "name": "event_timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "UTC timestamp (partition key). FortiGate: date + time."
+  },
+  {
+    "name": "device_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Firewall hostname or serial. FortiGate: devname/serial."
+  },
+  {
+    "name": "log_type",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Log subtype (e.g. traffic:forward). FortiGate: type/subtype."
+  },
+  {
+    "name": "action",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Traffic action (e.g. allow, deny). FortiGate: action."
+  },
+  {
+    "name": "rule_id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Policy ID. FortiGate: policyid."
+  },
+  {
+    "name": "rule_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Policy name. FortiGate: policyname."
+  },
+  {
+    "name": "direction",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Traffic direction (e.g. inbound, outbound)."
+  },
+  {
+    "name": "src_ip",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Source IP address. FortiGate: srcip."
+  },
+  {
+    "name": "src_port",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Source port. FortiGate: srcport."
+  },
+  {
+    "name": "dst_ip",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Destination IP address. FortiGate: dstip."
+  },
+  {
+    "name": "dst_port",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Destination port. FortiGate: dstport."
+  },
+  {
+    "name": "protocol",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Protocol (e.g. TCP, UDP). FortiGate: proto/service."
+  },
+  {
+    "name": "ing_if",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Ingress interface. FortiGate: srcintf."
+  },
+  {
+    "name": "egr_if",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Egress interface. FortiGate: dstintf."
+  },
+  {
+    "name": "vpn_remote_ip",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "VPN pool IP. FortiGate: remip."
+  },
+  {
+    "name": "nat_src_ip",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "SNAT IP. FortiGate: tranip."
+  },
+  {
+    "name": "nat_src_port",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "SNAT port. FortiGate: tranport."
+  },
+  {
+    "name": "nat_dst_ip",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "DNAT IP. FortiGate: dstinip/trandstip."
+  },
+  {
+    "name": "nat_dst_port",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "DNAT port. FortiGate: trandstport."
+  },
+  {
+    "name": "user_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Authenticated username. FortiGate: user."
+  },
+  {
+    "name": "app_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Application name. FortiGate: app."
+  },
+  {
+    "name": "sent_bytes",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Bytes sent. FortiGate: sentbyte."
+  },
+  {
+    "name": "rcvd_bytes",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Bytes received. FortiGate: rcvdbyte."
+  },
+  {
+    "name": "duration",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Session duration (sec). FortiGate: duration."
+  },
+  {
+    "name": "threat_name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Threat/signature name. FortiGate: threat/msg."
+  },
+  {
+    "name": "event_uuid",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Deterministic natural key SHA256 for event tagging/linking."
+  }
+]

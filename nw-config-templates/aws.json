@@ -1,0 +1,21 @@
+{
+  "log_type": "aws",
+  "format": "json",
+  "fields": [
+    { "target": "event_timestamp", "source": "event.timestamp", "transform": "aws_suricata" },
+    { "target": "device_name",     "source": "firewall_name" },
+    { "target": "log_type",        "source": "event.event_type", "default": "netflow" },
+    { "target": "action",          "source": "event.alert.action" },
+    { "target": "rule_id",         "source": "event.alert.signature_id" },
+    { "target": "rule_name",       "source": "event.alert.category" },
+    { "target": "threat_name",     "source": "event.alert.signature" },
+    { "target": "src_ip",          "source": "event.src_ip" },
+    { "target": "src_port",        "source": "event.src_port" },
+    { "target": "dst_ip",          "source": "event.dest_ip" },
+    { "target": "dst_port",        "source": "event.dest_port" },
+    { "target": "protocol",        "source": "event.proto", "transform": "upper" },
+    { "target": "app_name",        "source": "event.app_proto" },
+    { "target": "sent_bytes",      "source": "event.netflow.bytes" },
+    { "target": "duration",        "source": "event.netflow.age" }
+  ]
+}

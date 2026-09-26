@@ -1,0 +1,32 @@
+{
+  "log_type": "fortigate",
+  "format": "kv",
+  "delimiter": "comma",
+  "fields": [
+    { "target": "event_timestamp", "source": "itime", "transform": "unix" },
+    { "target": "device_name",     "source": ["devname", "serial"] },
+    { "target": "log_type",        "join": ["type", "subtype"] },
+    { "target": "action",          "source": "action" },
+    { "target": "rule_id",         "source": "policyid" },
+    { "target": "rule_name",       "source": "policyname" },
+    { "target": "direction",       "source": "direction" },
+    { "target": "src_ip",          "source": "srcip" },
+    { "target": "src_port",        "source": "srcport" },
+    { "target": "dst_ip",          "source": "dstip" },
+    { "target": "dst_port",        "source": "dstport" },
+    { "target": "protocol",        "source": "proto", "transform": "proto_num" },
+    { "target": "ing_if",          "source": ["srcintf", "interface", "vd"] },
+    { "target": "egr_if",          "source": "dstintf" },
+    { "target": "vpn_remote_ip",   "source": "remip" },
+    { "target": "nat_src_ip",      "source": "tranip" },
+    { "target": "nat_src_port",    "source": "tranport" },
+    { "target": "nat_dst_ip",      "source": ["dstinip", "trandstip"] },
+    { "target": "nat_dst_port",    "source": "trandstport" },
+    { "target": "user_name",       "source": ["user", "unauthuser"] },
+    { "target": "app_name",        "source": ["app", "appcat"] },
+    { "target": "sent_bytes",      "source": "sentbyte" },
+    { "target": "rcvd_bytes",      "source": "rcvdbyte" },
+    { "target": "duration",        "source": "duration" },
+    { "target": "threat_name",     "source": ["threat", "msg"] }
+  ]
+}
