@@ -14,6 +14,7 @@
 
 ---
 ## 📂 File Structure
+```txt
 `pipeline/`
 ├─ `bqload-trigger/` : Triggers and loads Log2Timeline JSONL into BigQuery (`timeline_events`).
 ├─ `bqload-job/` : Handles the BigQuery loading process for timeline events.
@@ -32,7 +33,7 @@
 ├─ `create_uploader_sa.sh` : Helper script to create dedicated Service Account for GCS file uploading.
 ├─ `generate_upload_ps1.sh` : Helper script to generate a PowerShell scripts consists of curl coomands with signed URLs.
 └─ `cleanup_uploader_sa.sh` : Helper script to delete dedicated Service Account for GCS file uploading.
-
+```
 ---
 
 ## ⚙️ Configuration
