@@ -108,4 +108,4 @@ Templates are available in `nw-config-templates/` for the following formats:
 
 > [!NOTE]
 > Templates were generated from sample log files available online, so there is no guarantee they will parse your specific logs as expected. It will be tuned through practical engagements.
-> To onboard a new vendor, simply copy the closest matching template into `gs://<BUCKET-NW>/config/<log_type>.json`, upload the logs to `gs://<BUCKET-NW>/log/<log_type>/` using upload script by upload_ps.sh, rclone or other tools.
+> To onboard a new vendor, simply copy the closest matching template into `gs://<BUCKET-NW>/config/<log_type>.json`, upload the logs to `gs://<BUCKET-NW>/log/<log_type>/` using upload script by generate_upload_ps1.sh, rclone or other tools.
