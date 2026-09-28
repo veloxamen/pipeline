@@ -8,9 +8,9 @@
 
 ## ✨ Key Concepts
 
-* **Automation:** Automatically triggers processing and loads data into BigQuery schemas once evidence or logs are uploaded to the appropriate GCS bucket.
-* **Security & Privacy:** Integrated with **Cloud KMS** and RSA encryption for secure artifact handling. Minimizes compliance risks by excluding PII where possible.
-* **Simplicity:** A single-binary approach on Cloud Run / Google Batch—no complex installation required.
+* **Automation** Automatically triggers processing and loads data into BigQuery schemas once evidence or logs are uploaded to the appropriate GCS bucket.
+* **Security** Integrated with Cloud KMS and RSA encryption for secure artifact handling, minimizing compliance risks.
+* **Flexibility**: Easily adaptable to various situations and investigation styles through custom views and flexible network configurations.
 
 ---
 ## 📂 File Structure
