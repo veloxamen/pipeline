@@ -40,7 +40,7 @@
 
 Minimal configuration is required. Edit the environment variables at the top of `deploy.sh`:
 
-1. **Project ID (`PROJECT_ID`):** Specify your case-specific name (e.g., `JDOE202601`). The script automatically prefixes it to ensure uniqueness.
+1. **Project ID (`PROJECT_ID`):** Specify your case-specific name (e.g., `jdoe202601`). The script automatically prefixes it to ensure uniqueness.
 2. **Billing Account ID (`BILLING_ACCOUNT_ID`):** Specify your GCP Billing Account ID.
 
 > [!IMPORTANT]
