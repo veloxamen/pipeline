@@ -16,14 +16,14 @@
 ## 📂 File Structure
 ```txt
 `pipeline/`
-├─ `bqload-trigger/` : Triggers and loads Log2Timeline JSONL into BigQuery (`timeline_events`).
+├─ `bqload-trigger/` : Triggers and loads Plaso JSONL into BigQuery (`timeline_events`).
 ├─ `bqload-job/` : Handles the BigQuery loading process for timeline events.
 ├─ `decrypt-trigger/` : Triggers the decryption process for uploaded forensic artifacts.
 ├─ `decrypt-job/` : Decrypts encrypted forensic artifacts using Cloud KMS.
 ├─ `network-trigger/` : Triggers network log processing upon new uploads.
 ├─ `network-job/` : Parses multi-vendor network logs and loads them into BigQuery (`network_events`).
 ├─ `nw-config-templates/` : Base JSON configuration templates for network log parsing.
-├─ `plaso-trigger/` : Triggers Plaso/log2timeline processing for raw evidence.
+├─ `plaso-trigger/` : Triggers log2timeline/plaso processing for raw evidence.
 ├─ `plaso-job/` : Runs Plaso processing via Google Batch to generate timeline JSONL.
 ├─ `deploy.sh` : Automated deployment script for the entire pipeline on GCP.
 ├─ `timeline_events.json` : Schema design for the `timeline_events` table.
